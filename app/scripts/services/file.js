@@ -12,7 +12,7 @@ angular.module('storycloudChallengeApp')
     // File class to return
     var File = {};
     // Extend the Resource class into the File class
-    angular.extend(File, Resource)
+    angular.extend(File, Resource);
     
     // Get/Set a filename
     File.prototype.name = function (value) {
