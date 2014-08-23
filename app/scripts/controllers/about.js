@@ -7,7 +7,7 @@
  * # AboutCtrl
  * Controller of the workspaceApp
  */
-angular.module('workspaceApp')
+angular.module('storycloud-challenge')
   .controller('AboutCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',

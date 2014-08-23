@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('workspaceApp', [
+  .module('storycloudChallengeApp', [
     'ngResource',
     'ngRoute'
   ])
