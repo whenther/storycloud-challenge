@@ -9,15 +9,24 @@
  */
 angular.module('storycloudChallengeApp')
   .factory('Resource', function () {
-    // Service logic
-    // ...
-
-    var meaningOfLife = 42;
-
-    // Public API here
-    return {
-      someMethod: function () {
-        return meaningOfLife;
+    var Resource = function (attributes) {
+      // Private resource info
+      this._attributes = attributes || {};
+    };
+    
+    // Get or set an attribute
+    Resource.prototype.attr = function (key, value) {
+      // If value specified, set that value
+      if (value) {
+        this._attributes[key] = value;
+        // Return the new value
+        return value;
+      // Otherwise, get the current value
+      } else {
+        return this._attributes[key];
       }
     };
+
+    // Public API here
+    return Resource;
   });
