@@ -11,9 +11,9 @@ angular.module('storycloudChallengeApp')
   .factory('Collection', function () {
     
     // Main collection class
-    var Collection = function () {
+    var Collection = function (contents) {
       // Private list of collection contents
-      this._contents = [];
+      this._contents = contents || [];
     };
     
     // Add a resource or collection
@@ -62,5 +62,11 @@ angular.module('storycloudChallengeApp')
           });
         }
       }
+      
+      // return the populated lists
+      return list;
     };
+    
+    // Return the Collection class
+    return Collection;
   });
