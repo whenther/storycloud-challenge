@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: AboutCtrl', function () {
+describe('Controller: FolderCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('workspaceApp'));
+  beforeEach(module('storycloudChallengeApp'));
 
-  var AboutCtrl,
+  var FolderCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    AboutCtrl = $controller('AboutCtrl', {
+    FolderCtrl = $controller('FolderCtrl', {
       $scope: scope
     });
   }));

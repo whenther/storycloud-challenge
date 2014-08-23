@@ -16,12 +16,17 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        redirectTo: '/folder'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .when('/folder', {
+        templateUrl: 'views/folder.html',
+        controller: 'FolderCtrl',
+        controllerAs: 'folder'
+      })
+      .when('/file', {
+        templateUrl: 'views/file.html',
+        controller: 'FileCtrl',
+        controllerAs: 'file'
       })
       .otherwise({
         redirectTo: '/'
