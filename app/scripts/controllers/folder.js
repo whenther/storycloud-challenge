@@ -62,6 +62,32 @@ angular.module('storycloudChallengeApp')
       }
     };
     
+    // Send an alert of each selected FileName
+    scope.selectedAlert = function () {
+      var selectedNames = '',
+      // Get the list of files
+          files = scope.contents.resources;
+      
+      for (var i=0; i<files.length; i++) {
+        // If the file is selected
+        if (scope.selected.indexOf(files[i].id) !== -1) {
+          // Add a comma if there is already a list
+          if (selectedNames)
+            selectedNames += ', ';
+          
+          // Add the file to the selected names string
+          selectedNames += files[i].resource.title();
+        }
+      }
+      
+      // When done going through files, fire the alert
+      alert('Selected files: ' + selectedNames);
+    };
+    // Clear selections
+    scope.selectedClear = function () {
+      scope.selected = [];
+    };
+    
     //==========================================================================
     // Sort ====================================================================
     //==========================================================================

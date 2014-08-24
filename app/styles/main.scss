@@ -13,7 +13,11 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 }
 
 // GENERAL STYLING
+html {height: 100%;}
+
 body {
+  position: relative;
+  min-height: 100%;
   font-family: Roboto, sans-serif;
 }
 
@@ -30,7 +34,14 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-
+// Give buttons space
+.footer-bumper {
+  height: 78px;
+  
+  @media only screen and (min-width : $screen-sm-min) {
+    height: 39px;
+  }
+}
 
 .file-box {
   text-align: center;
@@ -56,12 +67,25 @@ h1, h2, h3, h4, h5, h6 {
     text-align: right;   
   }
   
-  .folders>.folder {
+  .folders>.folder>div {
     background: $brand-primary;
-    color: white;
+    margin: 5px 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    
+    a {
+        color: white;
+        
+      h3 {
+        margin: 0;
+        padding: 10px 0;
+      }
+    }
+    
   }
   
-  .files>.file {
+  .files .file {
     margin: 5px 0;
     
     .file-box {
@@ -75,7 +99,6 @@ h1, h2, h3, h4, h5, h6 {
         height: 24px;
         border-radius: 12px;
         border: 1px solid $brand-success;
-        z-index: 9999;
       }
       .file-selector.selected {
         background: $brand-success;
@@ -92,6 +115,17 @@ h1, h2, h3, h4, h5, h6 {
         background: rgba(0,0,0,0.5);
         color: white;
       }
+    }
+  }
+  
+  .select-btns {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    
+    button {
+      margin-bottom: 5px;
+      border-radius: 0 !important;
     }
   }
 }
