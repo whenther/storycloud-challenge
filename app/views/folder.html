@@ -23,11 +23,9 @@
         <div class="folders row" ng-show="folder.contents.collections">
             <h2 class="title">Folders</h2>
             <div ng-repeat="subfolder in folder.contents.collections" class="folder col-xs-3">
-                <div>
-                    <a ng-href="#/{{ subfolder.collection.id }}">
-                        <h3>{{ subfolder.collection.name }}</h3>
-                    </a>
-                </div>
+                <a class="btn btn-primary btn-block" ng-href="#/{{ subfolder.collection.id }}">
+                    {{ subfolder.collection.name }}
+                </a>
             </div>
         </div>
         

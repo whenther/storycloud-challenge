@@ -34,6 +34,12 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+// Flat buttons
+button, .btn {
+  border-radius: 0 !important;
+  font-weight: 300;
+}
+
 // Give buttons space
 .footer-bumper {
   height: 78px;
@@ -65,24 +71,6 @@ h1, h2, h3, h4, h5, h6 {
   
   .sort {
     text-align: right;   
-  }
-  
-  .folders>.folder>div {
-    background: $brand-primary;
-    margin: 5px 0;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    
-    a {
-        color: white;
-        
-      h3 {
-        margin: 0;
-        padding: 10px 0;
-      }
-    }
-    
   }
   
   .files .file {
@@ -125,7 +113,6 @@ h1, h2, h3, h4, h5, h6 {
     
     button {
       margin-bottom: 5px;
-      border-radius: 0 !important;
     }
   }
 }
