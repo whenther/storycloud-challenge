@@ -3,6 +3,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
 // endbower
 
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/_variables.scss";
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -10,83 +12,100 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   padding: 0.2em 0;
 }
 
-/* Space out content a bit */
+// GENERAL STYLING
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  font-family: Roboto, sans-serif;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
 }
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
-  }
-}
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
-
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
+.title {
   text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
+  width: 100%;
+  
+  .name {
+    font-weight: 700;
   }
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
 
-  p + h4 {
-    margin-top: 28px;
+
+.file-box {
+  text-align: center;
+  color: $brand-primary;
+  border: 1px solid gray;
+  width: 100%;
+  
+  h1 {
+    vertical-align: center;
+    padding: 50px 0;
   }
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
+// FOLDER
+#folder {
+  
+  .name {
+    text-align: left;
+    font-weight: 700;
   }
+  
+  .sort {
+    text-align: right;   
+  }
+  
+  .folders>.folder {
+    background: $brand-primary;
+    color: white;
+  }
+  
+  .files>.file {
+    margin: 5px 0;
+    
+    .file-box {
+      position: relative;
+      
+      .file-selector {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 24px;
+        height: 24px;
+        border-radius: 12px;
+        border: 1px solid $brand-success;
+        z-index: 9999;
+      }
+      .file-selector.selected {
+        background: $brand-success;
+      }
+      
+      
+      .file-name {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        background: rgb(70,70,70);
+        background: rgba(0,0,0,0.5);
+        color: white;
+      }
+    }
+  }
+}
 
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
+// FILE 
+#file {
+  @media only screen and (min-width : $screen-sm-min) {
+    background: rgb(30,30,30);
+    background: rgba(0,0,0,0.25);
+    
+    .file-box {
+      width: 200px;
+      height: 200px;
+    }
   }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+  
 }

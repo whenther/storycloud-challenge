@@ -1,1 +1,44 @@
-<p>This is the folder view.</p>
+<div id="folder">
+    <div class="row">
+        <div class="col-xs-4"><h2 class="name">{{ folder.name }}</h2></div>
+        <div class="col-xs-4"><h1 class="title">What</h1></div>
+        
+        
+        <!-- Sort -->
+        <div class="col-xs-4 dropdown">
+          <a class="sort" href='' class="dropdown-toggle" id="dropdownSort" data-toggle="dropdown">
+            <h2 class="sort">Sort</h2>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownSort">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="" ng-click="folder.sort('')">Most Recent</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="" ng-click="folder.sort('title')">Title</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="" ng-click="folder.sort('type')">File Type</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="" ng-click="folder.sort('created')">Date Created</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="" ng-click="folder.sort('creator')">Creator</a></li>
+          </ul>
+        </div>
+        <!-- /Sort -->
+    </div>
+    
+    <div class="folders row">
+        <h2 class="title">Folders</h2>
+        <div ng-repeat="subfolder in folder.contents.collections" class="folder col-sm-3">
+            <a ng-href="#/{{ subfolder.collection.id }}">
+                <h3>{{ subfolder.collection.name }}</h3>
+            </a>
+        </div>
+    </div>
+    
+    <div class="files row">
+        <h2 class="title">Files</h2>
+        <div ng-repeat="file in folder.contents.resources | orderBy:folder.sortOn" class="file col-sm-3">
+            <a ng-href="#/{{ folder.id }}/{{ file.id }}">
+                <div class="file-box">
+                    <h1>{{ file.resource.type() }}</h1>
+                    <div class="file-selector" ng-class="folder.isSelected(file.id)" ng-click="folder.toggleSelect(file.id, $event)"></div>
+                    <div class="file-name"><h4>{{ file.resource.title() }}</h4></div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

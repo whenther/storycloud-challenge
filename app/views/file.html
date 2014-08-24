@@ -1,1 +1,16 @@
-<p>This is the file view.</p>
+<div id="folder">
+    <div class="title">
+        <h1>Detail</h1>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-4 file-box"><h1>{{ file.resource.type() }}</h1></div>
+        <div class="col-sm-8 file-details">
+            <h3>{{ file.resource.title() }}</h3>
+            <p>{{ file.resource.type() }}</p>
+            <p>{{ file.resource.created() }}</p>
+            <p>{{ file.resource.creator() }}</p>
+            <p>{{ file.resource.other() }}</p>
+        </div>
+    </div>
+</div>

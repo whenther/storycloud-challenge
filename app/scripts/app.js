@@ -16,14 +16,14 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        redirectTo: '/folder'
+        redirectTo: '/0'
       })
-      .when('/folder', {
+      .when('/:folderId', {
         templateUrl: 'views/folder.html',
         controller: 'FolderCtrl',
         controllerAs: 'folder'
       })
-      .when('/file', {
+      .when('/:folderId/:fileId', {
         templateUrl: 'views/file.html',
         controller: 'FileCtrl',
         controllerAs: 'file'

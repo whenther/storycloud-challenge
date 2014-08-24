@@ -77,21 +77,21 @@ angular.module('storycloudChallengeApp')
         contents: [
           {
             title: 'File1',
-            type: '.txt',
+            type: 'txt',
             created: '23 Aug 2014',
             creator: 'Bob',
             other: ''
           },
           {
             title: 'File2',
-            type: '.txt',
+            type: 'txt',
             created: '22 Aug 2014',
             creator: 'Bob',
             other: ''
           },
           {
             title: 'File3',
-            type: '.docx',
+            type: 'docx',
             created: '21 Aug 2014',
             creator: 'John',
             other: ''
@@ -102,21 +102,21 @@ angular.module('storycloudChallengeApp')
             contents: [
               {
                 title: 'File4',
-                type: '.txt',
+                type: 'txt',
                 created: '23 Aug 2014',
                 creator: 'Bob',
                 other: ''
               },
               {
                 title: 'File5',
-                type: '.txt',
+                type: 'txt',
                 created: '22 Aug 2014',
                 creator: 'John',
                 other: ''
               },
               {
                 title: 'File6',
-                type: '.docx',
+                type: 'docx',
                 created: '21 Aug 2014',
                 creator: 'John',
                 other: ''
@@ -139,10 +139,14 @@ angular.module('storycloudChallengeApp')
           // if it's a folder:
 
           // Create the folder
-          var newFolder = new Folder(dataFolder[i].name);
+          // Send in the flatfolders length, which is the index it will get
+          var newFolder = new Folder(flatFolders.length, dataFolder[i].name);
 
-          // Add it to the localFolder
+          // Add the folder to the localFolder
           localFolder.create(newFolder);
+          
+          // Add the folder to the flatfolders array
+          flatFolders.push(newFolder);
 
           // Recurse through this function to add the folder's contents
           parseData(dataFolder[i].contents, newFolder);
@@ -159,12 +163,17 @@ angular.module('storycloudChallengeApp')
     }
     
     // Create the base filesystem folder
-    var filesystem = new Folder('filesystem');
+    var filesystem = new Folder(0, 'filesystem'),
+    // An array of folders, so they can be found via routes
+    // With the filesystem as the first entry
+        flatFolders = [filesystem];
     
     // Parse the data into the filesystem
     parseData(data, filesystem);
     
-    // Return a ref to the filesystem
-    return filesystem;
-    
+    // Return a ref to the filesystem and folder array
+    return {
+      tree: filesystem,
+      folders: flatFolders
+    };
   }]);

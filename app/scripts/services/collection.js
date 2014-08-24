@@ -11,7 +11,10 @@ angular.module('storycloudChallengeApp')
   .factory('Collection', function () {
     
     // Main collection class
-    var Collection = function (name) {
+    var Collection = function (id, name) {
+      // public ID
+      this.id = id;
+      
       // public name
       this.name = name;
       
@@ -38,7 +41,7 @@ angular.module('storycloudChallengeApp')
     // Return the contents of the container
     // Divide into collections and resources
     // Include index numbers for reference
-    Collection.prototype.list = function () {
+    Collection.prototype.contents = function () {
       // get shorter reference to contents
       var contents = this._contents,
       // the list object to populate and return

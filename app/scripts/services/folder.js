@@ -15,9 +15,9 @@ angular.module('storycloudChallengeApp')
     //==========================================================================
     // Create the Folder class
     // (a subclass of Collection)
-    var Folder = function (name) {
+    var Folder = function (id, name) {
       // call super constructor.
-      Collection.call(this, name); 
+      Collection.call(this, id, name); 
     };
     // extend Resource
     Folder.prototype = Object.create(Collection.prototype);
@@ -26,5 +26,5 @@ angular.module('storycloudChallengeApp')
     // No new methods needed
     
     // Public API here
-    return File;
+    return Folder;
   }]);
