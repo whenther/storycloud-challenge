@@ -8,10 +8,7 @@
  * Controller of the storycloudChallengeApp
  */
 angular.module('storycloudChallengeApp')
-  .controller('FileCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('FileCtrl', ['$routeParams', 'filesystem', function ($routeParams, filesystem) {
+    
+
+  }]);

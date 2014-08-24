@@ -11,9 +11,12 @@ angular.module('storycloudChallengeApp')
   .factory('Collection', function () {
     
     // Main collection class
-    var Collection = function (contents) {
+    var Collection = function (name) {
+      // public name
+      this.name = name;
+      
       // Private list of collection contents
-      this._contents = contents || [];
+      this._contents = [];
     };
     
     // Add a resource or collection
@@ -28,7 +31,8 @@ angular.module('storycloudChallengeApp')
     
     // Remove an entry by index
     Collection.prototype.delete = function (index) {
-      this._contents.splice(index, 1);
+      // use delete to keep other indices from changing 
+      this._contents.delete(index);
     };
     
     // Return the contents of the container

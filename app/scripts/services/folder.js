@@ -9,10 +9,19 @@
  */
 angular.module('storycloudChallengeApp')
   .factory('Folder', ['Collection', function (Collection) {
-    // File class to return
-    var Folder = {};
-    // Extend the Resource class into the File class
-    angular.extend(Folder, Collection);
+    
+    //==========================================================================
+    // Extend Collection class =================================================
+    //==========================================================================
+    // Create the Folder class
+    // (a subclass of Collection)
+    var Folder = function (name) {
+      // call super constructor.
+      Collection.call(this, name); 
+    };
+    // extend Resource
+    Folder.prototype = Object.create(Collection.prototype);
+    Folder.prototype.constructor = Folder;
     
     // No new methods needed
     

@@ -9,14 +9,26 @@
  */
 angular.module('storycloudChallengeApp')
   .factory('File', ['Resource', function (Resource) {
-    // File class to return
-    var File = {};
-    // Extend the Resource class into the File class
-    angular.extend(File, Resource);
     
+    //==========================================================================
+    // Extend Resource class ===================================================
+    //==========================================================================
+    // Create the File class
+    // (a subclass of Resource)
+    var File = function (attributes) {
+      // call super constructor.
+      Resource.call(this, attributes); 
+    };
+    // extend Resource
+    File.prototype = Object.create(Resource.prototype);
+    File.prototype.constructor = File;
+    
+    //==========================================================================
+    // File-specific Getter/Setters ============================================
+    //==========================================================================
     // Get/Set a filename
-    File.prototype.name = function (value) {
-      return this.attr('name', value);
+    File.prototype.title = function (value) {
+      return this.attr('title', value);
     };
     
     // Get/Set a filename
@@ -39,6 +51,8 @@ angular.module('storycloudChallengeApp')
       return this.attr('other', value);
     };
     
-    // Public API here
+    //==========================================================================
+    // Return ==================================================================
+    //==========================================================================
     return File;
   }]);
