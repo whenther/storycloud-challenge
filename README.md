@@ -8,5 +8,5 @@ Angular
 Bower  
 Bootstrap
 
-This also requires the compass ruby gem to compile the stylesheets.
-```gem install compass```
+This also requires the compass ruby gem (```gem install compass```)
+to compile the stylesheets.
